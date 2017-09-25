@@ -17,38 +17,41 @@ fprintf('Diff between homegrown and matlab implementation (per pixel) = %f\n',su
 
 %inputFilename = 'caribou.jpg';
 %refFilename = 'chickens.png'; 
+% 
+% inputFilename = 'bergen.jpg';
+% refFilename = 'eagle.png'; 
+% 
+% inputImg = imread(inputFilename);
+% refImg = imread(refFilename);
+% 
+% [newImg, map] = assignment1_part3(inputFilename, refFilename);
+% 
+% inputHist = imhist(inputImg);
+% refHist = imhist(refImg);
+% newHist = imhist(newImg);
+% 
+% figure, subplot('Position',[0.02, 0, 0.3, 0.9])
+% imshow(inputImg), axis image,  title('Original')
+% subplot('Position',[0.02+1/3, 0, 0.3, 0.9])
+% imshow(refImg), axis image,  title('Reference')
+% subplot('Position',[0.02+2/3, 0, 0.3, 0.9])
+% imshow(newImg), axis image,  title('Matched')
+%  
+% figure, subplot('Position',[0.05, 0.04, 0.9, 0.28])
+% plot(inputHist), legend('Original'); 
+% subplot('Position',[0.05, 0.04+1/3, 0.9, 0.28])
+% plot(refHist), legend('Reference');  
+% subplot('Position',[0.05, 0.04+2/3, 0.9, 0.28])
+% plot(newHist), legend('Matched'); 
+% 
+% [matlabHistMatch, matlabMap] = imhistmatch(inputImg, refImg);
+% [n,m] = size(inputImg);
+% imgSize = n*m;
+% fprintf('Diff between homegrown and matlab implementation (per pixel) = %f\n',sum(sum(abs(double(matlabHistMatch) - double(newImg))))/imgSize);
 
-inputFilename = 'bergen.jpg';
-refFilename = 'eagle.png'; 
-
-inputImg = imread(inputFilename);
-refImg = imread(refFilename);
-
-[newImg, map] = assignment1_part3(inputFilename, refFilename);
-
-inputHist = imhist(inputImg);
-refHist = imhist(refImg);
-newHist = imhist(newImg);
-
-figure, subplot('Position',[0.02, 0, 0.3, 0.9])
-imshow(inputImg), axis image,  title('Original')
-subplot('Position',[0.02+1/3, 0, 0.3, 0.9])
-imshow(refImg), axis image,  title('Reference')
-subplot('Position',[0.02+2/3, 0, 0.3, 0.9])
-imshow(newImg), axis image,  title('Matched')
- 
-figure, subplot('Position',[0.05, 0.04, 0.9, 0.28])
-plot(inputHist), legend('Original'); 
-subplot('Position',[0.05, 0.04+1/3, 0.9, 0.28])
-plot(refHist), legend('Reference');  
-subplot('Position',[0.05, 0.04+2/3, 0.9, 0.28])
-plot(newHist), legend('Matched'); 
-
-[matlabHistMatch, matlabMap] = imhistmatch(inputImg, refImg);
-[n,m] = size(inputImg);
-imgSize = n*m;
-fprintf('Diff between homegrown and matlab implementation (per pixel) = %f\n',sum(sum(abs(double(matlabHistMatch) - double(newImg))))/imgSize);
-
+assignment1_part3('blood.png', 'car.png');
+%assignment1_part3('caribou.jpg', 'chickens.png');
+%assignment1_part3('bergen.jpg', 'eagle.png');
 
 %%
 inputFilename = 'blood.png';
